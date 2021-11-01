@@ -32,6 +32,8 @@ services:
       - db-data:/var/lib/mysql
     networks:
       - alphabet
+    ports:
+      - ${DB_PORT}:3306
       
   nginx:
     image: nginx:1.17-alpine
