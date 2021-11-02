@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'UvU Driver Application',
+      title: 'Алфавит',
       theme: ThemeData(),
       initialRoute: AuthScreen.routeName,
       routes: {
