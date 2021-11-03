@@ -1,3 +1,4 @@
+import 'package:alphabet/views/screens/alphabet_screen.dart';
 import 'package:alphabet/views/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Алфавит',
       theme: ThemeData(),
-      initialRoute: AuthScreen.routeName,
+      initialRoute: AlphabetScreen.routeName,
       routes: {
         AuthScreen.routeName: (context) => const AuthScreen(),
-        // ProfileScreen.routeName: (context) => const ProfileScreen(),
+        AlphabetScreen.routeName: (context) => const AlphabetScreen(),
       },
     );
   }

@@ -1,5 +1,5 @@
 import 'package:alphabet/views/styling/alphabet_decorations.dart';
-import 'package:alphabet/views/widgets/alphabet_button.dart';
+import 'package:alphabet/views/widgets/send_button.dart';
 import 'package:flutter/material.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -41,7 +41,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     .copyWith(labelText: 'Пароль'),
               ),
               const SizedBox(height: 14),
-              AlphabetButton(
+              SendButton(
                 text: 'Авторизация',
                 onPressed: () {},
               ),

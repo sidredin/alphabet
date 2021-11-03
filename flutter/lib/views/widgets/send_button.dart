@@ -1,8 +1,8 @@
 import 'package:alphabet/views/styling/alphabet_colors.dart';
 import 'package:flutter/material.dart';
 
-class AlphabetButton extends StatelessWidget {
-  const AlphabetButton({
+class SendButton extends StatelessWidget {
+  const SendButton({
     Key? key,
     required this.text,
     this.color = AlphabetColors.darkGrey,
@@ -11,7 +11,6 @@ class AlphabetButton extends StatelessWidget {
     this.fontSize = 18.0,
     this.textColor = Colors.white,
     this.fontWeight = FontWeight.w700,
-    this.fontFamily = 'Comfortaa',
   }) : super(key: key);
 
   final String text;
@@ -21,7 +20,6 @@ class AlphabetButton extends StatelessWidget {
   final double fontSize;
   final Color? textColor;
   final FontWeight fontWeight;
-  final String fontFamily;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +41,6 @@ class AlphabetButton extends StatelessWidget {
           text,
           textAlign: TextAlign.justify,
           style: TextStyle(
-            fontFamily: fontFamily,
             fontSize: fontSize,
             fontWeight: fontWeight,
             color: textColor,
