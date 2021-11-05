@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('wins')->unsigned()->default(0);
+            $table->integer('losses')->unsigned()->default(0);
         });
     }
 
