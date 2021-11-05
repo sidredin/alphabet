@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Алфавит',
       theme: ThemeData(),
-      initialRoute: AlphabetScreen.routeName,
+      initialRoute: AuthScreen.routeName,
       routes: {
         AuthScreen.routeName: (context) => const AuthScreen(),
         AlphabetScreen.routeName: (context) => const AlphabetScreen(),

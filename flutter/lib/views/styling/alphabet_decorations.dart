@@ -8,6 +8,14 @@ class AlphabetDecorations {
     borderSide: BorderSide(color: AlphabetColors.lightGrey),
   );
 
+  static const OutlineInputBorder errorTextFieldBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+    borderSide: BorderSide(
+      color: AlphabetColors.authError,
+      width: 2,
+    ),
+  );
+
   static const Decoration contactsDecoration = BoxDecoration(
     borderRadius: BorderRadius.horizontal(
       left: Radius.circular(40),
@@ -18,7 +26,6 @@ class AlphabetDecorations {
 
   static const InputDecoration textFieldInputDecoration = InputDecoration(
     floatingLabelBehavior: FloatingLabelBehavior.auto,
-    labelText: "Логин",
     labelStyle: TextStyle(
       fontWeight: FontWeight.normal,
     ),
@@ -28,6 +35,5 @@ class AlphabetDecorations {
     contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
     border: textFieldBorder,
     enabledBorder: textFieldBorder,
-    disabledBorder: textFieldBorder,
   );
 }

@@ -16,7 +16,7 @@ class UserController extends Controller
         if ($user) {
             return response()->json(['success' => true, 'data' => $user]);
         } else {
-            return response()->json(['success' => false], 404);
+            return response()->json(['success' => false], 401);
         }
     }
 }

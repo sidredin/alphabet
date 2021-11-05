@@ -1,3 +1,5 @@
+import 'package:alphabet/views/styling/alphabet_colors.dart';
+import 'package:alphabet/views/styling/alphabet_text_styles.dart';
 import 'package:alphabet/views/widgets/letter_button.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,7 @@ class AlphabetScreen extends StatefulWidget {
 }
 
 class _AlphabetScreenState extends State<AlphabetScreen> {
+  String mainLetter = 'Б';
   final letters = [
     'А',
     'Б',
@@ -44,6 +47,7 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as Map;
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -56,10 +60,16 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
                   widthFactor: 1,
                   heightFactor: 1,
                   child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: AlphabetColors.lightGrey,
+                    ),
                     margin: const EdgeInsets.symmetric(vertical: 24),
-                    child: const LetterButton(
-                      letter: 'Ы',
-                      onPressed: null,
+                    child: Align(
+                      child: Text(
+                        mainLetter,
+                        style: AlphabetTextStyles.mainLetterTextStyle,
+                      ),
                     ),
                   ),
                 ),
@@ -85,9 +95,7 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
     for (var letter in letters) {
       lettersList.add(LetterButton(
         letter: letter,
-        onPressed: () {
-          // print(letter);
-        },
+        mainLetter: mainLetter,
       ));
     }
     return lettersList;
