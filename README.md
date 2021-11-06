@@ -36,7 +36,7 @@ docker-compose exec app php artisan db:seed
 
 #### Требования
 
-- Flutter
+- Flutter SDK
 - Android SDK
 - IDE с установленным плагином Flutter
 
