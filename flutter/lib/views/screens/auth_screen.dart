@@ -1,4 +1,4 @@
-import 'package:alphabet/services/authentication.dart';
+import 'package:alphabet/services.dart';
 import 'package:alphabet/views/screens/alphabet_screen.dart';
 import 'package:alphabet/views/styling/alphabet_decorations.dart';
 import 'package:alphabet/views/widgets/auth_error.dart';
@@ -21,7 +21,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget commonError = Container();
   InputBorder? nameInputBorder = AlphabetDecorations.textFieldBorder;
   InputBorder? passwordInputBorder = AlphabetDecorations.textFieldBorder;
-  Authentication authentication = Authentication();
+  Services services = Services();
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +123,7 @@ class _AuthScreenState extends State<AuthScreen> {
         'name': name,
         'password': password,
       };
-      int userId = await authentication.getUserId(accessData);
+      int userId = await services.getUserId(accessData);
       if (userId < 1) {
         commonError =
             const AuthError(errorText: 'Неправильное имя или пароль!');

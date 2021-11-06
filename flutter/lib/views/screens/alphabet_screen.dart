@@ -1,3 +1,5 @@
+import 'package:alphabet/models/alphabet.dart';
+import 'package:alphabet/services.dart';
 import 'package:alphabet/views/styling/alphabet_colors.dart';
 import 'package:alphabet/views/styling/alphabet_text_styles.dart';
 import 'package:alphabet/views/widgets/letter_button.dart';
@@ -12,42 +14,28 @@ class AlphabetScreen extends StatefulWidget {
 }
 
 class _AlphabetScreenState extends State<AlphabetScreen> {
-  String mainLetter = 'Б';
-  final letters = [
-    'А',
-    'Б',
-    'В',
-    'Г',
-    'Ы',
-    'А',
-    'Б',
-    'В',
-    'Г',
-    'Ы',
-    'А',
-    'Б',
-    'В',
-    'Г',
-    'Ы',
-    'А',
-    'Б',
-    'В',
-    'Г',
-    'Ы',
-    'А',
-    'Б',
-    'В',
-    'Г',
-    'Ы',
-    'А',
-    'Б',
-    'В',
-    'Г',
-    'Ы',
-  ];
+  Services services = Services();
+  String mainLetter = '';
+  List<String> letters = [];
+  Color mainLetterColor = AlphabetColors.lightGrey;
+
+  getLetters() async {
+    Alphabet alphabet = await services.getLetters();
+    mainLetter = alphabet.mainLetter;
+    letters = alphabet.letters;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getLetters();
+  }
+
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Map;
+    final int userId = args['userId'];
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -62,7 +50,7 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
-                      color: AlphabetColors.lightGrey,
+                      color: mainLetterColor,
                     ),
                     margin: const EdgeInsets.symmetric(vertical: 24),
                     child: Align(
@@ -80,7 +68,7 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
                   crossAxisSpacing: 23,
                   shrinkWrap: true,
                   crossAxisCount: 3,
-                  children: getLetterButtonsList(letters),
+                  children: getLetterButtonsList(letters, userId),
                 ),
               ),
             ],
@@ -90,12 +78,18 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
     );
   }
 
-  getLetterButtonsList(List<String> letters) {
+  getLetterButtonsList(List<String> letters, int userId) {
     List<LetterButton> lettersList = [];
     for (var letter in letters) {
       lettersList.add(LetterButton(
         letter: letter,
         mainLetter: mainLetter,
+        userId: userId,
+        changeMainLetterBlockColor: () {
+          setState(() {
+            mainLetterColor = AlphabetColors.rightChoice;
+          });
+        },
       ));
     }
     return lettersList;
