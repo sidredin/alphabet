@@ -32,3 +32,14 @@ docker-compose exec app php artisan migrate
 docker-compose exec app php artisan db:seed
 ```
 
+## 2. Запуск мобильного приложения
+
+#### Требования
+
+- Flutter
+- Android SDK
+- IDE с установленным плагином Flutter
+
+#### Билд приложения
+
+Открываем папку flutter в любом IDE, на котором установлен плагин Flutter. Запускаем приложение в эмуляторе. Если бекенд установлен на хостинге, то в файле настроек "flutter/lib/settings.dart" меняем IPhttp://10.0.2.2 на IP или домен своего хостинга. 
